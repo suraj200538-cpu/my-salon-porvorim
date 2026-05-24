@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY SALON-Porvorim – Porvorim-Goa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#c9736a;--rose-light:#e8a89e;--rose-pale:#f5e8e6;--blush:#f9f0ee;--charcoal:#1e1a1a;--charcoal-mid:#2e2828;--warm-white:#fdf8f7;--text-muted:#7a6b6b;--gold:#c9a96e;--border:#e8d5d0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--charcoal);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--blush);}
+::-webkit-scrollbar-thumb{background:var(--rose-light);border-radius:2px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 6%;background:rgba(253,248,247,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em;line-height:1;}
+.nav-brand span{display:block;font-size:10px;font-family:'Jost',sans-serif;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;color:var(--rose);margin-top:2px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--rose);}
+.nav-book{background:var(--charcoal);color:var(--warm-white);padding:10px 24px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}
+.nav-book:hover{background:var(--rose);}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;position:relative;overflow:hidden;}
+.hero-left{padding:80px 6% 60px;display:flex;flex-direction:column;justify-content:center;background:var(--warm-white);position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:32px;font-weight:500;}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--rose);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,80px);font-weight:300;line-height:1.05;color:var(--charcoal);margin-bottom:28px;}
+.hero h1 em{font-style:italic;color:var(--rose);display:block;}
+.hero-desc{font-size:15px;font-weight:300;line-height:1.8;color:var(--text-muted);margin-bottom:44px;max-width:420px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.btn-dark{background:var(--charcoal);color:var(--warm-white);padding:14px 32px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;display:inline-flex;align-items:center;gap:10px;transition:all 0.25s;}
+.btn-dark:hover{background:var(--rose);}
+.btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--border);padding:14px 32px;font-size:12px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;display:inline-flex;align-items:center;gap:10px;transition:all 0.25s;}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose);}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:32px;}
+.stat{padding-right:32px;margin-right:32px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--charcoal);line-height:1;}
+.stat-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:4px;}
+.hero-right{background:var(--rose-pale);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 40px;}
+.hero-right::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(201,115,106,0.08);}
+.hero-visual{width:100%;max-width:380px;background:var(--warm-white);border-radius:4px;padding:36px;box-shadow:0 20px 60px rgba(30,26,26,0.08);position:relative;z-index:1;text-align:center;}
+.hero-visual-icon{font-size:64px;margin-bottom:20px;display:block;}
+.hero-visual h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--charcoal);margin-bottom:8px;}
+.hero-visual p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px;}
+.rating-row{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px;}
+.stars-gold{color:var(--gold);font-size:16px;letter-spacing:2px;}
+.rating-text{font-size:13px;color:var(--text-muted);}
+.services-preview{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.sp-tag{font-size:11px;letter-spacing:0.06em;background:var(--rose-pale);color:var(--rose);padding:5px 12px;border-radius:20px;border:1px solid rgba(201,115,106,0.2);}
+#services{padding:100px 6%;background:var(--warm-white);}
+.section-eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;font-weight:500;}
+.section-eyebrow::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;color:var(--charcoal);line-height:1.1;margin-bottom:60px;}
+.section-title em{font-style:italic;color:var(--rose);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
+.service-card{background:var(--warm-white);padding:36px 32px;transition:background 0.25s;position:relative;overflow:hidden;}
+.service-card:hover{background:var(--blush);}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--rose);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.service-card:hover::after{transform:scaleX(1);}
+.service-icon{font-size:32px;margin-bottom:20px;display:block;}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--charcoal);margin-bottom:10px;}
+.service-card p{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;}
+.service-price{font-size:12px;font-weight:500;letter-spacing:0.06em;color:var(--rose);}
+#reviews{padding:100px 6%;background:var(--charcoal);}
+#reviews .section-eyebrow{color:var(--rose-light);}
+#reviews .section-eyebrow::after{background:rgba(255,255,255,0.1);}
+#reviews .section-title{color:var(--warm-white);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.review-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:32px;transition:background 0.25s;}
+.review-card:hover{background:rgba(255,255,255,0.07);}
+.review-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}
+.stars-sm{color:var(--gold);font-size:13px;letter-spacing:2px;}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;font-style:italic;color:rgba(253,248,247,0.8);line-height:1.7;margin-bottom:24px;}
+.reviewer{display:flex;align-items:center;gap:12px;}
+.reviewer-av{width:36px;height:36px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--warm-white);flex-shrink:0;}
+.reviewer-name{font-size:14px;font-weight:500;color:var(--warm-white);}
+.reviewer-sub{font-size:12px;color:rgba(253,248,247,0.4);margin-top:2px;}
+#about{padding:100px 6%;background:var(--rose-pale);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img{background:var(--warm-white);border-radius:4px;padding:48px 32px;text-align:center;box-shadow:0 12px 40px rgba(30,26,26,0.06);position:relative;}
+.about-img::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--rose-light);border-radius:4px;z-index:0;}
+.about-img-inner{position:relative;z-index:1;}
+.about-img-icon{font-size:56px;margin-bottom:16px;display:block;}
+.about-img h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--charcoal);margin-bottom:8px;}
+.about-img p{font-size:13px;color:var(--text-muted);line-height:1.6;}
+.about-desc{font-size:15px;font-weight:300;color:var(--text-muted);line-height:1.9;margin-bottom:36px;}
+.features{display:flex;flex-direction:column;gap:18px;}
+.feature{display:flex;gap:16px;align-items:flex-start;}
+.feature-line{width:1px;background:var(--rose);flex-shrink:0;margin-top:6px;height:36px;}
+.feature h4{font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:3px;}
+.feature p{font-size:13px;color:var(--text-muted);line-height:1.6;}
+#contact{padding:100px 6%;background:var(--warm-white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+.contact-desc{font-size:15px;font-weight:300;color:var(--text-muted);line-height:1.9;margin-bottom:40px;}
+.contact-details{display:flex;flex-direction:column;gap:22px;}
+.cd-row{display:flex;gap:16px;align-items:flex-start;}
+.cd-icon{width:40px;height:40px;border-radius:2px;background:var(--rose-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.cd-row h4{font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--charcoal);margin-bottom:4px;}
+.cd-row p{font-size:14px;color:var(--text-muted);}
+.cd-row a{color:var(--rose);text-decoration:none;}
+.map-box{height:140px;background:var(--blush);border-radius:2px;border:1px dashed var(--border);margin-top:28px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px;}
+.booking-form{background:var(--charcoal);border-radius:4px;padding:44px;}
+.booking-form h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--warm-white);margin-bottom:6px;}
+.booking-form>p{font-size:13px;color:rgba(253,248,247,0.4);margin-bottom:28px;}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(253,248,247,0.5);margin-bottom:8px;}
+.fg input,
+.fg select,
+.fg textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--warm-white);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.fg select option{background:var(--charcoal-mid);color:var(--warm-white);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rose);}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(253,248,247,0.2);}
+.fg textarea{height:80px;resize:none;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-btn{width:100%;background:var(--rose);color:var(--warm-white);padding:14px;border:none;border-radius:2px;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:4px;}
+.form-btn:hover{background:var(--rose-light);}
+.form-note{font-size:11px;color:rgba(253,248,247,0.3);text-align:center;margin-top:10px;}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.2s;}
+.wa-float:hover{transform:scale(1.1);}
+footer{background:var(--charcoal-mid);padding:28px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{font-size:12px;color:rgba(253,248,247,0.3);}
+footer strong{color:var(--rose-light);}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(253,248,247,0.5);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-left>*{animation:fadeUp 0.7s ease both;}
+.hero-eyebrow{animation-delay:0.1s;}.hero h1{animation-delay:0.2s;}.hero-desc{animation-delay:0.3s;}.hero-actions{animation-delay:0.4s;}.hero-stats{animation-delay:0.5s;}
+@media(max-width:900px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}.nav-links{display:none;}.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}.about-img{display:none;}.fg-row{grid-template-columns:1fr;}footer{justify-content:center;text-align:center;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-brand">MY SALON-Porvorim<span>Porvorim-Goa</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Book</a></li>
+  </ul>
+  <a href="#contact" class="nav-book">Book Appointment</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Premium Beauty Studio</div>
+    <h1>Where Beauty<br>Meets <em>Artistry.</em></h1>
+    <p class="hero-desc">Expert hair, skin, and bridal services crafted for you. Trusted by 800+ clients across Porvorim-Goa since 2014.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-dark">✨ Book Appointment</a>
+      <a href="https://wa.me/8767453716" class="btn-outline" target="_blank">💬 WhatsApp Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">800+</div><div class="stat-label">Happy Clients</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <span class="hero-visual-icon">💄</span>
+      <h3>MY SALON-Porvorim</h3>
+      <p>behind Mall De Goa, near Amantran Udupi hotel, Alto Porvorim, Porvorim, Penha de Franc, <br>Porvorim-Goa 403521</p>
+      <div class="rating-row">
+        <span class="stars-gold">★★★★★</span>
+        <span class="rating-text">4.9 · 800+ Google reviews</span>
+      </div>
+      <div class="services-preview">
+        <span class="sp-tag">Hair Color</span><span class="sp-tag">Bridal Makeup</span>
+        <span class="sp-tag">Facial</span><span class="sp-tag">Waxing</span>
+        <span class="sp-tag">Nail Art</span><span class="sp-tag">Hair Spa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-eyebrow">What We Offer</div>
+  <h2 class="section-title">Our <em>Signature</em> Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">💇‍♀️</span><h3>Hair Services</h3><p>Haircut, layer cut, blow dry, hair color, highlights, balayage, keratin treatment, hair spa — by expert stylists who understand your hair type.</p><div class="service-price">Starting ₹299</div></div>
+    <div class="service-card"><span class="service-icon">👰</span><h3>Bridal Makeup</h3><p>Complete bridal packages including makeup, hair styling, saree draping, and mehendi coordination. We make your special day unforgettable.</p><div class="service-price">Starting ₹4,999</div></div>
+    <div class="service-card"><span class="service-icon">✨</span><h3>Skin & Facial</h3><p>Hydra facial, gold facial, cleanup, bleach, de-tan, and anti-ageing treatments using premium products for visible, lasting results.</p><div class="service-price">Starting ₹499</div></div>
+    <div class="service-card"><span class="service-icon">💅</span><h3>Nails & Waxing</h3><p>Manicure, pedicure, nail art, gel nails, and full body waxing. Hygienic tools, gentle techniques, and beautiful results every time.</p><div class="service-price">Starting ₹199</div></div>
+    <div class="service-card"><span class="service-icon">🧘‍♀️</span><h3>Spa & Relaxation</h3><p>Body massage, hair spa, head massage — unwind completely. Our spa services are designed to relax your body and refresh your mind.</p><div class="service-price">Starting ₹799</div></div>
+    <div class="service-card"><span class="service-icon">🎓</span><h3>Beauty Courses</h3><p>Basic and advanced beauty courses for aspiring professionals. Learn makeup, hair styling, and skin treatments from experienced instructors.</p><div class="service-price">Enquire for fees</div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-eyebrow">Client Stories</div>
+  <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top"><div class="stars-sm">★★★★★</div><span>🔵</span></div>
+      <p class="review-text">"Absolutely loved my experience! The saree draping, makeup and hair styling were done to perfection. I got so many compliments at the function. Highly, highly recommended!"</p>
+      <div class="reviewer"><div class="reviewer-av">PR</div><div><div class="reviewer-name">Pooja Rane</div><div class="reviewer-sub">Bridal Client · Verified Google Review</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-top"><div class="stars-sm">★★★★★</div><span>🔵</span></div>
+      <p class="review-text">"My go-to place for waxing, haircut and facial since years. Very nice service — I always get appreciated for my haircut. The staff is reliable, friendly and very good at their craft."</p>
+      <div class="reviewer"><div class="reviewer-av">AS</div><div><div class="reviewer-name">Anita Suryavanshi</div><div class="reviewer-sub">Regular Client · Verified Google Review</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-top"><div class="stars-sm">★★★★★</div><span>🔵</span></div>
+      <p class="review-text">"I had a hydra facial done here and I could see the glow immediately after the session. My face looked so hydrated and fresh. The staff explained everything in detail. Best salon in PCMC!"</p>
+      <div class="reviewer"><div class="reviewer-av">NP</div><div><div class="reviewer-name">Neha Patil</div><div class="reviewer-sub">Skin Client · Verified Google Review</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <div class="about-img-inner">
+        <span class="about-img-icon">🌸</span>
+        <h3>MY SALON-Porvorim</h3>
+        <p>behind Mall De Goa, near Amantran Udupi hotel, Alto Porvorim, Porvorim, Penha de Franc, <br>Porvorim-Goa 403521<br><br>⭐ 4.9 / 5 on Google<br>📞 +91 98765 43210<br><br>Mon–Sun: 9:30 AM – 9:30 PM</p>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="section-title">Beauty is Our <em>Craft.</em></h2>
+      <p class="about-desc">With over 10 years of experience in Porvorim-Goa, MY SALON-Porvorim has built a reputation for quality, consistency, and genuine care for every client who walks through our door. We use only premium products and maintain the highest hygiene standards.</p>
+      <div class="features">
+        <div class="feature"><div class="feature-line"></div><div><h4>Expert Stylists</h4><p>Our team is trained, certified, and passionate. They listen first, then create — so you always leave happy.</p></div></div>
+        <div class="feature"><div class="feature-line"></div><div><h4>Premium Products Only</h4><p>We use Lakme, Loreal, Wella and other trusted brands — never compromising on what touches your hair or skin.</p></div></div>
+        <div class="feature"><div class="feature-line"></div><div><h4>Strict Hygiene Standards</h4><p>Every tool is sanitized before each client. Clean, safe, and comfortable — always.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Book Your <em>Appointment</em></h2>
+      <p class="contact-desc">Fill the form or WhatsApp us directly. We confirm your slot within 1 hour.</p>
+      <div class="contact-details">
+        <div class="cd-row"><div class="cd-icon">📍</div><div><h4>Address</h4><p>behind Mall De Goa, near Amantran Udupi hotel, Alto Porvorim, Porvorim, Penha de Franc, <br>Porvorim-Goa 403521</p></div></div>
+        <div class="cd-row"><div class="cd-icon">📞</div><div><h4>Phone</h4><p>+91 98765 43210</p></div></div>
+        <div class="cd-row"><div class="cd-icon">⏰</div><div><h4>Hours</h4><p>Monday – Sunday · 9:30 AM – 9:30 PM</p></div></div>
+        <div class="cd-row"><div class="cd-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/8767453716">Chat with us directly →</a></p></div></div>
+      </div>
+      <div class="map-box">📍 Google Maps embed goes here</div>
+    </div>
+    <div class="booking-form">
+      <h3>Book a Session</h3>
+      <p>We'll confirm your slot within 1 hour</p>
+      <div class="fg"><label>Your Name</label><input type="text" placeholder="Full name" id="f-name"></div>
+      <div class="fg-row">
+        <div class="fg"><label>WhatsApp Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="f-phone"></div>
+        <div class="fg"><label>Preferred Date</label><input type="date" id="f-date"></div>
+      </div>
+      <div class="fg"><label>Service Required</label>
+        <select id="f-service">
+          <option value="">Select a service</option>
+          <option>Hair Services (Cut / Color / Spa)</option>
+          <option>Bridal Makeup Package</option>
+          <option>Skin & Facial Treatment</option>
+          <option>Nails & Waxing</option>
+          <option>Spa & Relaxation</option>
+          <option>Beauty Course Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label>Any Special Request</label><textarea placeholder="e.g. preferred timing, specific treatment..." id="f-msg"></textarea></div>
+      <button class="form-btn" onclick="submitForm()">Confirm Appointment →</button>
+      <p class="form-note">No advance payment needed · We'll call to confirm</p>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/8767453716?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Aura%20Beauty%20Studio" class="wa-float" target="_blank">💬</a>
+
+<footer>
+  <div class="footer-brand">MY SALON-Porvorim</div>
+  <p>© 2025 <strong>MY SALON-Porvorim</strong> · <br>Porvorim-Goa 403521</p>
+  <p>Website by <strong>AutomationOps</strong></p>
+</footer>
+
+<script>
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const service=document.getElementById('f-service').value;
+  const date=document.getElementById('f-date').value;
+  const msg=document.getElementById('f-msg').value;
+  if(!name||!phone||!service){alert('Please fill Name, Phone and Service.');return;}
+  const webhookURL='YOUR_N8N_WEBHOOK_URL_HERE';
+  const payload={name,phone,service,date,message:msg,timestamp:new Date().toISOString(),source:'salon-website'};
+  fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json','ngrok-skip-browser-warning':'true'},body:JSON.stringify(payload)})
+  .then(r=>{if(r.ok){alert('✅ Appointment request sent! We will confirm within 1 hour.');}else{throw new Error();}})
+  .catch(()=>{
+    const m=encodeURIComponent('Appointment Request:\nName: '+name+'\nPhone: '+phone+'\nService: '+service+'\nDate: '+date);
+    window.open('https://wa.me/8767453716?text='+m,'_blank');
+  });
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.padding=window.scrollY>40?'14px 6%':'20px 6%';
+});
+</script>
+</body>
+</html>
